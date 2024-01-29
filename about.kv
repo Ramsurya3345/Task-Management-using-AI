@@ -1,0 +1,33 @@
+<AboutusScreen>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'images/img_28.png'  # Replace with your background image file path
+
+    BoxLayout:
+        orientation: 'vertical'
+        Widget:  # Add an empty widget to create space underneath the button
+            size_hint_y: None
+            height: '50dp'
+        Widget:  # Add an empty widget to create space underneath the button
+            size_hint_y: None
+            height: '30dp'
+        Button:
+            background_color: 0,0,0,0
+            size_hint: None, None
+            size: '100dp', '70dp'  # Adjust the size as needed
+            pos_hint: {'center_x': 0.5, 'center_y': 1.2}  # Adjust the 'center_y' value for spacing
+            on_release: app.root.current = 'home'  # Switch to the 'next' screen
+            Image:
+                id:my_image
+                source:"images/img_27.png"
+                size:self.parent.size
+                center_x:self.parent.center_x
+                center_y:self.parent.center_y
+
+         # Adjust the height for the desired space
+
+
+
+

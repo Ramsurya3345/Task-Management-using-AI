@@ -1,0 +1,215 @@
+<FeedbackScreen>:
+    email_input: email_input
+    feedback_input: feedback_input
+
+    BoxLayout:
+        canvas.before:
+            Color:
+                rgba: 1,1,1,1  # Light gray background color
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        BoxLayout:
+            orientation:'vertical'
+            spacing:'10dp'
+
+            BoxLayout:
+                orientation:'horizontal'
+                size_hint_y: None
+                height: '60dp'
+                canvas.before:
+                    Color:
+                        rgba: 1,0,0,1  # Border color (cool shade)
+                    RoundedRectangle:
+                        pos: self.x + 5, self.y - 5  # Shift the rectangle for the shadow
+                        size: self.width - 10, self.height  # Adjust the size for the shadow
+                        radius: [10, 10, 10, 10]  # Adjust the radius to control the shadow's roundness
+                Widget:
+                    size_hint_x: None
+                    width: '10dp'
+                Label:
+                    text: '[color=000000][font=Poppins-SemiBold]Feedback[/font][/color]'
+                    font_size:'25sp'
+                    markup:True
+                    size_hint_x: None
+                    width: self.texture_size[0]
+
+                Widget:
+                    size_hint_x: None
+                    width: '120dp'
+            GridLayout:
+                cols:1
+
+
+
+
+                BoxLayout:
+                    orientation:'horizontal'
+                    size_hint_y: None
+                    height: '60dp'
+                    canvas.before:
+                        Color:
+                            rgba: 1,1,1,1  # Border color (cool shade)
+                        RoundedRectangle:
+                            pos: self.x + 5, self.y - 5  # Shift the rectangle for the shadow
+                            size: self.width - 10, self.height  # Adjust the size for the shadow
+                            radius: [10, 10, 0, 0]  # Adjust the radius to control the shadow's roundness
+                    Button:
+                        background_color:0,0,0,0
+                        size_hint_y: None
+
+
+                        Image:
+                            id:my_image
+                            source:"images/img_21.png"
+                            size:self.parent.size
+                            center_x:self.parent.center_x
+                            center_y:self.parent.center_y
+                BoxLayout:
+                    orientation:'horizontal'
+                    size_hint_y: None
+                    height: '60dp'
+                    canvas.before:
+                        Color:
+                            rgba: 1,1,1,1  # Border color (cool shade)
+                        RoundedRectangle:
+                            pos: self.x + 5, self.y - 5  # Shift the rectangle for the shadow
+                            size: self.width - 10, self.height  # Adjust the size for the shadow
+                            radius: [10, 10, 0, 0]  # Adjust the radius to control the shadow's roundness
+                    Label:
+                        text:'[color=000000][font=Poppins-SemiBold]What do you want us to improve?[/font][/color]'
+                        markup:True
+                        font_size:'15sp'
+                BoxLayout:
+                    orientation:'vertical'
+                    size_hint_y: None
+                    height: '120dp'
+                    spacing:'10dp'
+                    canvas.before:
+                        Color:
+                            rgba: 1,1,1,1  # Border color (cool shade)
+                        RoundedRectangle:
+                            pos: self.x + 5, self.y - 5  # Shift the rectangle for the shadow
+                            size: self.width - 10, self.height  # Adjust the size for the shadow
+                            radius: [10, 10, 0, 0]  # Adjust the radius to control the shadow's roundness
+                    TextInput:
+                        id: email_input
+                        hint_text:'Your EmailID'
+
+
+
+
+                        background_color: 1, 1, 1, 0  # Set background color to transparent
+                        canvas.before:
+                            Color:
+                                rgba: 0.2, 0.2, 0.2, 1  # Adjust the color as needed
+                            Line:
+                                width: 2  # Adjust the border width as needed
+                                rectangle: self.x, self.y, self.width, self.height
+                    TextInput:
+                        id: feedback_input
+                        hint_text:'Your Suggestions here!!!'
+
+
+
+                        background_color: 1, 1, 1, 0  # Set background color to transparent
+                        canvas.before:
+                            Color:
+                                rgba: 0.2, 0.2, 0.2, 1  # Adjust the color as needed
+                            Line:
+                                width: 2  # Adjust the border width as needed
+                                rectangle: self.x, self.y, self.width, self.height
+
+
+                BoxLayout:
+                    orientation:'horizontal'
+                    size_hint_y: None
+
+                    canvas.before:
+                        Color:
+                            rgba: 1,1,1,1  # Border color (cool shade)
+                        RoundedRectangle:
+                            pos: self.x + 5, self.y - 5  # Shift the rectangle for the shadow
+                            size: self.width - 10, self.height  # Adjust the size for the shadow
+                            radius: [10, 10, 0, 0]  # Adjust the radius to control the shadow's roundness
+                    Button:
+                        background_color: 0,0,0,0
+                        size_hint_y:None
+                        size:50,50
+                        on_release: root.submit_feedback()   # Switch to the 'next' screen
+                        Image:
+                            id:my_image
+                            source:"images/img_22.png"
+                            size:self.parent.size
+                            center_x:self.parent.center_x
+                            center_y:self.parent.center_y
+                Widget:
+                    size_hint_x: None
+                    height: '10dp'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint_y: None
+                spacing:'80dp'
+                padding:'10dp'# Adjust the height as needed
+                canvas.before:
+                    Color:
+                        rgba: 0.8, 0.8, 0.8, 0.7  # Border color (cool shade)
+                    RoundedRectangle:
+                        pos: self.x + 5, self.y - 5  # Shift the rectangle for the shadow
+                        size: self.width - 10, self.height  # Adjust the size for the shadow
+                        radius: [10, 10, 0, 0]  # Adjust the radius to control the shadow's roundness
+
+                Button:
+                    background_color:0,0,0,0
+                    size_hint_x: None
+                    height:'40dp'
+                    width: '40dp'
+                    on_release: app.root.current = 'feeds'
+                    Image:
+                        id:my_image
+                        source:"images/img_15.png"
+                        size:self.parent.size
+                        center_x:self.parent.center_x
+                        center_y:self.parent.center_y
+                Button:
+                    background_color:0,0,0,0
+                    size_hint_x: None
+                    height:'40dp'
+                    width: '40dp'
+                    on_release: app.root.current = 'home'
+                    Image:
+                        id:my_image
+                        source:"images/img_16.png"
+                        size:self.parent.size
+                        center_x:self.parent.center_x
+                        center_y:self.parent.center_y
+                Button:
+                    background_color:0,0,0,0
+                    size_hint_x: None
+                    height:'40dp'
+                    width: '40dp'
+                    on_release: app.root.current = 'setting'
+                    Image:
+                        id:my_image
+                        source:"images/img_17.png"
+                        size:self.parent.size
+                        center_x:self.parent.center_x
+                        center_y:self.parent.center_y

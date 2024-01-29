@@ -1,0 +1,30 @@
+<ThanksScreen>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'images/img_23.png'  # Replace with your background image file path
+
+    BoxLayout:
+        orientation: 'vertical'
+
+        Button:
+            background_color: 0,0,0,0
+            size_hint: None, None
+            size: '300dp', '100dp'  # Adjust the size as needed
+            pos_hint: {'center_x': 0.5, 'center_y': 0.6}  # Adjust the 'center_y' value for spacing
+            on_release: app.root.current = 'home'  # Switch to the 'next' screen
+            Image:
+                id:my_image
+                source:"images/img_24.png"
+                size:self.parent.size
+                center_x:self.parent.center_x
+                center_y:self.parent.center_y
+
+        Widget:  # Add an empty widget to create space underneath the button
+            size_hint_y: None
+            height: '30dp'  # Adjust the height for the desired space
+
+
+
+

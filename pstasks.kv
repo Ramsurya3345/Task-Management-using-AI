@@ -1,0 +1,118 @@
+<PstasksScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1  # Light gray background color
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        # Header
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: None
+            height: '60dp'
+            canvas.before:
+                Color:
+                    rgba: 237/255, 153/255, 47/255, 1.0  # Border color (cool shade)
+                RoundedRectangle:
+                    pos: self.x + 5, self.y - 5  # Shift the rectangle for the shadow
+                    size: self.width - 10, self.height  # Adjust the size for the shadow
+                    radius: [10, 10, 0, 0]  # Adjust the radius to control the shadow's roundness
+
+            Widget:
+                size_hint_x: None
+                width: '10dp'
+
+            Label:
+                text: '[color=000000][font=Poppins-SemiBold]Personal Tasks[/font][/color]'
+                font_size: '25sp'
+                markup: True
+                size_hint_x: None
+                width: self.texture_size[0]
+
+            Widget:
+                size_hint_x: None
+                width: '50dp'
+
+            Button:
+                background_color: 0, 0, 0, 0
+                size_hint_x: None
+                height: '40dp'
+                width: '40dp'
+                on_release: app.root.current = 'addtasks'
+                Image:
+                    id: my_image
+                    source: "images/img_19.png"
+                    size: self.parent.size
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+
+        # Task List
+        ScrollView:
+            id: scroll_view
+            GridLayout:
+                id: data_buttons_container
+                cols: 1
+                size_hint_y: None
+                height: self.minimum_height
+                padding: '10dp'
+                spacing: '5dp'
+
+
+
+        # Bottom Navigation
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: None
+            spacing: '80dp'
+            padding: '10dp'
+
+            # Adjustments for the bottom navigation
+            canvas.before:
+                Color:
+                    rgba: 0.8, 0.8, 0.8, 0.7  # Border color (cool shade)
+                RoundedRectangle:
+                    pos: self.x + 5, self.y - 5  # Shift the rectangle for the shadow
+                    size: self.width - 10, self.height  # Adjust the size for the shadow
+                    radius: [10, 10, 0, 0]  # Adjust the radius to control the shadow's roundness
+
+            Button:
+                background_color: 0, 0, 0, 0
+                size_hint_x: None
+                height: '40dp'
+                width: '40dp'
+                on_release: app.root.current = 'feeds'
+                Image:
+                    id: my_image
+                    source: "images/img_15.png"
+                    size: self.parent.size
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+
+            Button:
+                background_color: 0, 0, 0, 0
+                size_hint_x: None
+                height: '40dp'
+                width: '40dp'
+                on_release: app.root.current = 'home'
+                Image:
+                    id: my_image
+                    source: "images/img_32.png"
+                    size: self.parent.size
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y
+
+            Button:
+                background_color: 0, 0, 0, 0
+                size_hint_x: None
+                height: '40dp'
+                width: '40dp'
+                on_release: app.root.current = 'setting'
+                Image:
+                    id: my_image
+                    source: "images/img_17.png"
+                    size: self.parent.size
+                    center_x: self.parent.center_x
+                    center_y: self.parent.center_y

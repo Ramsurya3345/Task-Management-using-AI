@@ -1,0 +1,112 @@
+<RegisterScreen>:
+
+
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'images/img_4.png'  # Replace with your background image file path
+    FloatLayout:
+        size: root.width, root.height
+        Label:
+            id: message_label
+            text: ''  # Initialize with an empty message
+            size_hint_y: None
+            height: '30dp'
+            markup: True
+            font_size: '15sp'
+            color: 1, 0, 0, 1  # Red color for error messages
+            pos_hint: {'center_x': 0.5, 'top': 0.95}
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: None, None
+            spacing:'30dp'
+            size: '200dp', '250dp'
+            pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+
+            BoxLayout:
+                orientation: 'vertical'
+                spacing: '10dp'
+                size_hint_y: None
+                height: '60dp'
+
+                Label:
+                    text: '[color=000000][font=Poppins-SemiBold]Username:[/font][/color]'
+                    size_hint_y: None
+                    text_size: self.width, None
+                    markup:True
+                    font_size: '30sp'
+                    height: '30dp'
+                    canvas.before:
+                        Color:
+                            rgba: (0, 0, 0, 0)  # Set label background color (adjust as needed)
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+
+                TextInput:
+                    id:username
+                    hint_text: 'Enter your username'
+                    background_normal: 'images/img_7.png'  # Replace with your custom background image
+                    background_active: 'images/img_8.png'
+                    foreground_color: 0, 0, 0, 1  # Text color (black)
+                    cursor_color: 0, 0, 0, 1  # Cursor color (black)
+                    border: 0, 0, 0, 0
+                    multiline: False
+                    size_hint_y: None  # Disable height relative to parent
+                    height: '30dp'
+
+            BoxLayout:
+                orientation: 'vertical'
+                spacing: '5dp'
+                size_hint_y: None
+                height: '60dp'
+
+                Label:
+                    text: '[color=000000][font=Poppins-SemiBold]Password:[/font][/color]'
+                    size_hint_y: None
+                    text_size: self.width, None
+                    markup:True
+                    font_size: '30sp'
+                    height: '30dp'
+                    canvas.before:
+                        Color:
+                            rgba: (0,0,0,0)  # Set label background color (adjust as needed)
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+
+                TextInput:
+                    id:password
+                    hint_text: 'Enter your password'
+                    multiline: False
+                    password: True
+                    background_normal: 'images/img_7.png'  # Replace with your custom background image
+                    background_active: 'images/img_8.png'
+                    foreground_color: 0, 0, 0, 1  # Text color (black)
+                    cursor_color: 0, 0, 0, 1  # Cursor color (black)
+                    border: 0, 0, 0, 0
+                    size_hint_y: None  # Disable height relative to parent
+                    height: '30dp'
+
+            Button:
+
+                size_hint: None, None
+                size: '150dp', '40dp'
+                background_color:0,0,0,0
+
+                pos_hint: {'center_x': 0.5}
+                on_release:
+                    root.sign_up()  # Call the sign_up method
+                    app.root.current = 'gets1' if not message_label.text or message_label.text == 'User registered successfully.' else None  # Conditionally switch screen
+                Image:
+                    id:my_image
+                    source:"images/img_20.png"
+                    size:self.parent.size
+                    center_x:self.parent.center_x
+                    center_y:self.parent.center_y
+
+
+
+
+

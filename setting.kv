@@ -1,0 +1,228 @@
+<SettingScreen>:
+
+    BoxLayout:
+        canvas.before:
+            Color:
+                rgba: 1,1,1,1  # Light gray background color
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        BoxLayout:
+            orientation:'vertical'
+
+            BoxLayout:
+                orientation:'horizontal'
+                size_hint_y: None
+                height: '60dp'
+                canvas.before:
+                    Color:
+                        rgba: 1,0,0,1  # Border color (cool shade)
+                    RoundedRectangle:
+                        pos: self.x + 5, self.y - 5  # Shift the rectangle for the shadow
+                        size: self.width - 10, self.height  # Adjust the size for the shadow
+                        radius: [10, 10, 0, 0]  # Adjust the radius to control the shadow's roundness
+                Widget:
+                    size_hint_x: None
+                    width: '10dp'
+                Label:
+                    text: '[color=000000][font=Poppins-SemiBold]Settings[/font][/color]'
+                    font_size:'25sp'
+                    markup:True
+                    size_hint_x: None
+                    width: self.texture_size[0]
+
+                Widget:
+                    size_hint_x: None
+                    width: '120dp'
+            BoxLayout:
+                orientation:'vertical'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                BoxLayout:
+                    orientation: 'horizontal'
+                    BoxLayout:
+                        orientation:'horizontal'
+                        size_hint_y: None
+                        height: '60dp'
+                        canvas.before:
+                            Color:
+                                rgba: 0.8, 0.8, 0.8, 0.7  # Border color (cool shade)
+                            RoundedRectangle:
+                                pos: self.x + 5, self.y - 5  # Shift the rectangle for the shadow
+                                size: self.width - 10, self.height  # Adjust the size for the shadow
+                                radius: [10, 10, 10, 10]  # Adjust the radius to control the shadow's roundness
+                        Label:
+                            text:'[color=000000][font=Poppins-SemiBold]Reset Datas[/font][/color]'
+                            markup:True
+                            font_size:'15sp'
+                        Widget:
+                            size_hint_x: None
+                            width: '80dp'
+
+                        FloatLayout:
+                            Image:
+                                source: 'images/img_30.png' if not switch1.active else 'images/img_31.png'
+                                size_hint_x: None
+                                width: '60dp'  # Adjust the width of the Image
+                                pos_hint: {'center_x': 0.5, 'center_y': 0.5}  # Center the image
+                            Switch:
+                                id: switch1
+                                active: False  # Set the initial switch state
+                                pos_hint: {'center_x': 0.5, 'center_y': 0.5}  # Center the image
+                                opacity:0
+                        Widget:
+                            size_hint_x: None
+                            width: '5dp'
+
+
+
+                BoxLayout:
+                    orientation:'horizontal'
+                    size_hint_y: None
+
+                    canvas.before:
+                        Color:
+                            rgba: 1,1,1,1  # Border color (cool shade)
+                        RoundedRectangle:
+                            pos: self.x + 5, self.y - 5  # Shift the rectangle for the shadow
+                            size: self.width - 10, self.height  # Adjust the size for the shadow
+                            radius: [10, 10, 0, 0]  # Adjust the radius to control the shadow's roundness
+                    Button:
+                        background_color: 0,0,0,0
+                        size_hint_y:None
+                        size:50,50
+                        on_release:
+                            root.delete_all_data(switch1.active)  # Pass the switch state to the method
+                            app.root.current = 'home'  # Switch to the 'home' screen
+                        Image:
+                            id:my_image
+                            source:"images/img_29.png"
+                            size:self.parent.size
+                            center_x:self.parent.center_x
+                            center_y:self.parent.center_y
+
+
+                BoxLayout:
+                    orientation:'horizontal'
+                    size_hint_y: None
+
+                    canvas.before:
+                        Color:
+                            rgba: 1,1,1,1  # Border color (cool shade)
+                        RoundedRectangle:
+                            pos: self.x + 5, self.y - 5  # Shift the rectangle for the shadow
+                            size: self.width - 10, self.height  # Adjust the size for the shadow
+                            radius: [10, 10, 0, 0]  # Adjust the radius to control the shadow's roundness
+                    Button:
+                        background_color: 0,0,0,0
+                        size_hint_y:None
+                        size:50,50
+                        on_release: app.root.current = 'main'  # Switch to the 'next' screen
+                        Image:
+                            id:my_image
+                            source:"images/img_26.png"
+                            size:self.parent.size
+                            center_x:self.parent.center_x
+                            center_y:self.parent.center_y
+                BoxLayout:
+                    orientation: 'horizontal'
+                    BoxLayout:
+                        orientation:'horizontal'
+                        size_hint_y: None
+                        height: '60dp'
+                        canvas.before:
+                            Color:
+                                rgba: 0,0,0,0  # Border color (cool shade)
+                            RoundedRectangle:
+                                pos: self.x + 5, self.y - 5  # Shift the rectangle for the shadow
+                                size: self.width - 10, self.height  # Adjust the size for the shadow
+                                radius: [10, 10, 10, 10]  # Adjust the radius to control the shadow's roundness
+                        Label:
+                            text:'[color=000000][font=Poppins-SemiBold][/font][/color]'
+                            markup:True
+
+
+                Button:
+                    background_color: 0,0,0,0
+                    size_hint_y:None
+                    size:50,50
+                    on_release: app.root.current = 'aboutus'  # Switch to the 'next' screen
+                    Image:
+                        id:my_image
+                        source:"images/img_25.png"
+                        size:self.parent.size
+                        center_x:self.parent.center_x
+                        center_y:self.parent.center_y
+
+
+
+
+
+
+
+
+
+
+
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint_y: None
+                spacing:'80dp'
+                padding:'10dp'# Adjust the height as needed
+                canvas.before:
+                    Color:
+                        rgba: 0.8, 0.8, 0.8, 0.7  # Border color (cool shade)
+                    RoundedRectangle:
+                        pos: self.x + 5, self.y - 5  # Shift the rectangle for the shadow
+                        size: self.width - 10, self.height  # Adjust the size for the shadow
+                        radius: [10, 10, 0, 0]  # Adjust the radius to control the shadow's roundness
+
+                Button:
+                    background_color:0,0,0,0
+                    size_hint_x: None
+                    height:'40dp'
+                    width: '40dp'
+                    on_release: app.root.current = 'feeds'
+                    Image:
+                        id:my_image
+                        source:"images/img_15.png"
+                        size:self.parent.size
+                        center_x:self.parent.center_x
+                        center_y:self.parent.center_y
+                Button:
+                    background_color:0,0,0,0
+                    size_hint_x: None
+                    height:'40dp'
+                    width: '40dp'
+                    on_release: app.root.current = 'home'
+                    Image:
+                        id:my_image
+                        source:"images/img_16.png"
+                        size:self.parent.size
+                        center_x:self.parent.center_x
+                        center_y:self.parent.center_y
+                Button:
+                    background_color:0,0,0,0
+                    size_hint_x: None
+                    height:'40dp'
+                    width: '40dp'
+                    on_release: app.root.current = 'setting'
+                    Image:
+                        id:my_image
+                        source:"images/img_17.png"
+                        size:self.parent.size
+                        center_x:self.parent.center_x
+                        center_y:self.parent.center_y
